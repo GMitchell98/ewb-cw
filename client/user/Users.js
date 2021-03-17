@@ -52,7 +52,7 @@ export default function Users() {
     return (
       <Paper className={classes.root} elevation={4}>
         <Typography variant="h6" className={classes.title}>
-          All Users ({users.length})
+          Awesome people ({users.length})
         </Typography>
         <List dense>
          {users.map((item, i) => {
