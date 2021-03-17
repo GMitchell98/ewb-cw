@@ -68,7 +68,7 @@ export default function UsersAdmin({ match }) {
                       <ListItemText primary={item.name}/>
                       <ListItemText primary={"Administrator: " + item.admin}/>
                       <ListItemText primary={"Dog views" + item.dogclicks}/>
-                      <ListItemText primary={"cat views" + item.catclicks}/>
+                      <ListItemText primary={"Cat views" + item.catclicks}/>
                       <ListItemSecondaryAction>
                       <IconButton>
                           <ArrowForward/>

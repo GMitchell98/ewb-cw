@@ -54,7 +54,7 @@ const list = async (req, res) => {
 
 const listadmin = async (req, res) => {
   try {
-    let users = await User.find().select('name email about  updated created admin')
+    let users = await User.find().select('name email about dogclicks catclicks updated created admin')
     res.json(users)
   } catch (err) {
     return res.status(400).json({
