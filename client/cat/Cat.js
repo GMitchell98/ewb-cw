@@ -133,7 +133,7 @@ return (
           {!liked &&(<span>
             <Button color="primary" variant="contained" onClick={likeClick}  className={classes.submit}> Like </Button></span>)}
             {liked &&(<span>
-            <Button color="primary" variant="contained" onClick={likeClick}  className={classes.submit}> Disike </Button></span>)}
+            <Button color="primary" variant="contained" onClick={likeClick}  className={classes.submit}> Dislike </Button></span>)}
         </CardContent>
   </Card>
 );

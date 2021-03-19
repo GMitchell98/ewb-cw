@@ -47,7 +47,7 @@ export default function Home(){
           {
           !auth.isAuthenticated() && (<span>
           <Typography variant="body1" component="p">
-              To start viewing the pictures of dogs or catss please
+              To start viewing the pictures of dogs or cats please
             <Link to="/signin"> Sign in </Link>
             or 
             <Link to="/signup"> Sign up. </Link>
