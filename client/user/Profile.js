@@ -39,7 +39,7 @@ export default function Profile({ match }) {
   useEffect(() => {
     const abortController = new AbortController()
     const signal = abortController.signal
-
+    //get the user
     read({
       userId: match.params.userId
     }, {t: jwt.token}, signal).then((data) => {
@@ -90,7 +90,6 @@ export default function Profile({ match }) {
           	<ListItemText primary={"Profile edits: " + user.profileclicks}/>
           </ListItem>
           {auth.isAuthenticated().user && user.admin == true && (
-        
             <ListItem>
           	<Link to={"/usersadmin/"+ user._id}> Go to Admin Dashboard </Link>
             </ListItem>

@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import auth from '../auth/auth-helper'
 import { Redirect } from 'react-router-dom'
-import { getcat, addCatClick } from './api-cat'
+import { getcat, addCatClick, addCatLikeClick, removeCatLikeClick } from './api-cat'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -35,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     const [cat, setCat] = useState("")
     const jwt = auth.isAuthenticated()
     const [redirectToSignin, setRedirectToSignin]=useState(false)
+    const [liked, setLiked]=useState(false)
     
 
     useEffect(() => {
@@ -46,6 +47,40 @@ const useStyles = makeStyles(theme => ({
         abortController.abort()
       }
     }, [])
+
+    function likeClick(){
+      if(liked){
+        setLiked(false)
+        //remove the like
+        removeCatLikeClick({
+          userId: match.params.userId
+        }, {
+          t: jwt.token
+        }).then((data) => {
+          if (data && data.error) {
+            console.log(data.error)
+          } else {
+            console.log('Cat like added!')
+          }
+        }, [match.params.userId])
+        
+      }
+      else{
+        setLiked(true)
+        //add a like
+        addCatLikeClick({
+          userId: match.params.userId
+        }, {
+          t: jwt.token
+        }).then((data) => {
+          if (data && data.error) {
+            console.log(data.error)
+          } else {
+            console.log('Cat like added!')
+          }
+        }, [match.params.userId])
+      }
+    }
 
     function addClick(){
 
@@ -74,6 +109,7 @@ const useStyles = makeStyles(theme => ({
           console.log("Here is the cat img")
           console.log(data.data.file)
           setCat(data.data.file)
+          setLiked(false)
           addClick()
         }
 
@@ -93,7 +129,11 @@ return (
               <img src={cat} alt="Click the button to fetch a cat pic :)"/>
         </CardMedia>
         <CardContent>
-          <Button color="primary" variant="contained" onClick={newCat}  className={classes.submit}> Fetch a random Cat </Button>
+          <Button color="secondary" variant="contained" onClick={newCat}  className={classes.submit}> Fetch a random Cat </Button>
+          {!liked &&(<span>
+            <Button color="primary" variant="contained" onClick={likeClick}  className={classes.submit}> Like </Button></span>)}
+            {liked &&(<span>
+            <Button color="primary" variant="contained" onClick={likeClick}  className={classes.submit}> Disike </Button></span>)}
         </CardContent>
   </Card>
 );

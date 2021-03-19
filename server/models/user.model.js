@@ -44,6 +44,16 @@ const UserSchema = new mongoose.Schema({
     default: 0,
     min: 0
   },
+  doglikes: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  catlikes: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
   admin: {
   	type: Boolean,
   	default: false

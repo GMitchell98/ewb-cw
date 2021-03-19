@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
-import { getdog, addDogClick } from './api-dog'
+import { getdog, addDogClick, addDogLikeClick, removeDogLikeClick } from './api-dog'
 import Button from '@material-ui/core/Button'
 import auth from './../auth/auth-helper'
 import { Redirect } from 'react-router-dom'
@@ -37,6 +37,7 @@ function Dogs({ match }) {
       const [dog, setDog] = useState("")
       const jwt = auth.isAuthenticated()
       const [redirectToSignin, setRedirectToSignin]=useState(false)
+      const [liked, setLiked]=useState(false)
       
 
       useEffect(() => {
@@ -48,6 +49,40 @@ function Dogs({ match }) {
           abortController.abort()
         }
       }, [])
+
+      function likeClick(){
+        if(liked){
+          setLiked(false)
+          //remove the like
+          removeDogLikeClick({
+            userId: match.params.userId
+          }, {
+            t: jwt.token
+          }).then((data) => {
+            if (data && data.error) {
+              console.log(data.error)
+            } else {
+              console.log('Dog like added!')
+            }
+          }, [match.params.userId])
+          
+        }
+        else{
+          setLiked(true)
+          //add a like
+          addDogLikeClick({
+            userId: match.params.userId
+          }, {
+            t: jwt.token
+          }).then((data) => {
+            if (data && data.error) {
+              console.log(data.error)
+            } else {
+              console.log('Dog like added!')
+            }
+          }, [match.params.userId])
+        }
+      }
 
       function addClick(){
 
@@ -75,6 +110,7 @@ function Dogs({ match }) {
           } else {
             console.log("Here is the dog img")
             setDog(data.data.message)
+            setLiked(false)
             addClick()
           }
 
@@ -95,6 +131,10 @@ function Dogs({ match }) {
           </CardMedia>
           <CardContent>
             <Button color="primary" variant="contained" onClick={newDog}  className={classes.submit}> Fetch a random Dog </Button>
+            {!liked &&(<span>
+            <Button color="secondary" variant="contained" onClick={likeClick}  className={classes.submit}> Like </Button></span>)}
+            {liked &&(<span>
+            <Button color="secondary" variant="contained" onClick={likeClick}  className={classes.submit}> Disike </Button></span>)}
           </CardContent>
     </Card>
   );

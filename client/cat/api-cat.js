@@ -32,7 +32,41 @@ const addCatClick = async (params, credentials) => {
   }
 }
 
+const addCatLikeClick = async (params, credentials) => {
+  try {
+    let response = await fetch('/dogcat/cat/like/' + params.userId, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + credentials.t
+      }
+    })
+    return await response.json()
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+const removeCatLikeClick = async (params, credentials) => {
+  try {
+    let response = await fetch('/dogcat/cat/dislike/' + params.userId, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + credentials.t
+      }
+    })
+    return await response.json()
+  } catch(err) {
+    console.log(err)
+  }
+}
+
   export {
     getcat,
-    addCatClick 
+    addCatClick,
+    addCatLikeClick,
+    removeCatLikeClick 
   }
