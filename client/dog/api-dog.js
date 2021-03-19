@@ -1,5 +1,5 @@
 const getdog = async (params,credentials, signal) => {
-    console.log("fetching a dog")
+    //console.log("fetching a dog")
     try {
       let response = await fetch('/dogcat/dog/'+params.userId, {
         method: 'GET',
@@ -12,7 +12,7 @@ const getdog = async (params,credentials, signal) => {
       })
       return await response.json()
     } catch(err) {
-      console.log(err)
+      //console.log(err)
     }
   }
 
@@ -28,7 +28,7 @@ const getdog = async (params,credentials, signal) => {
       })
       return await response.json()
     } catch(err) {
-      console.log(err)
+      //console.log(err)
     }
   }
 
@@ -44,7 +44,7 @@ const getdog = async (params,credentials, signal) => {
       })
       return await response.json()
     } catch(err) {
-      console.log(err)
+      //console.log(err)
     }
   }
   const removeDogLikeClick = async (params, credentials) => {
@@ -59,7 +59,7 @@ const getdog = async (params,credentials, signal) => {
       })
       return await response.json()
     } catch(err) {
-      console.log(err)
+      //console.log(err)
     }
   }
 

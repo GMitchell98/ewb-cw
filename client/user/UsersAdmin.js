@@ -38,6 +38,7 @@ export default function UsersAdmin({ match }) {
   const [totalDogLikes, setTotalDogLikes] = useState(0)
   const [showMetrics, setShowMetrics] =useState(false)
 
+  //function that counts the metrics by looping through the users
   function countMetrics(){
     var cat =0
     var dog =0
@@ -52,8 +53,10 @@ export default function UsersAdmin({ match }) {
       doglikes =doglikes +obj.doglikes
       total = total +1
     }
+    //get the percentage of likes from views
     var doglikerate = (doglikes/dog)*100
     var catlikerate = (catlikes/cat)*100
+    // fixed to 2 decimal places
     doglikerate = doglikerate.toFixed(2)
     catlikerate = catlikerate.toFixed(2)
     setTotalCat(cat)
@@ -81,8 +84,8 @@ export default function UsersAdmin({ match }) {
       if (data && data.error) {
         console.log(data.error)
       } else {
-      	console.log("Here is the user data")
-      	console.log(data)
+      	//console.log("Here is the user data")
+      	//console.log(data)
         setUsers(data)
       }
     })

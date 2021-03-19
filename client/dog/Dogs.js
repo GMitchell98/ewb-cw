@@ -62,7 +62,7 @@ function Dogs({ match }) {
             if (data && data.error) {
               console.log(data.error)
             } else {
-              console.log('Dog like added!')
+              //console.log('Dog like added!')
             }
           }, [match.params.userId])
           
@@ -78,7 +78,7 @@ function Dogs({ match }) {
             if (data && data.error) {
               console.log(data.error)
             } else {
-              console.log('Dog like added!')
+              //console.log('Dog like added!')
             }
           }, [match.params.userId])
         }
@@ -94,7 +94,7 @@ function Dogs({ match }) {
           if (data && data.error) {
             console.log(data.error)
           } else {
-            console.log('Dog click added!')
+            //console.log('Dog click added!')
           }
         }, [match.params.userId])
 
@@ -108,7 +108,7 @@ function Dogs({ match }) {
           if (data && data.error) {
             setRedirectToSignin({redirectToSignin: true})
           } else {
-            console.log("Here is the dog img")
+            //console.log("Here is the dog img")
             setDog(data.data.message)
             setLiked(false)
             addClick()

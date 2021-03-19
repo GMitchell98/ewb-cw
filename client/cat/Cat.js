@@ -58,9 +58,9 @@ const useStyles = makeStyles(theme => ({
           t: jwt.token
         }).then((data) => {
           if (data && data.error) {
-            console.log(data.error)
+           // console.log(data.error)
           } else {
-            console.log('Cat like added!')
+            //console.log('Cat like added!')
           }
         }, [match.params.userId])
         
@@ -74,9 +74,9 @@ const useStyles = makeStyles(theme => ({
           t: jwt.token
         }).then((data) => {
           if (data && data.error) {
-            console.log(data.error)
+            //console.log(data.error)
           } else {
-            console.log('Cat like added!')
+            //console.log('Cat like added!')
           }
         }, [match.params.userId])
       }
@@ -90,9 +90,9 @@ const useStyles = makeStyles(theme => ({
         t: jwt.token
       }).then((data) => {
         if (data && data.error) {
-          console.log(data.error)
+         //console.log(data.error)
         } else {
-          console.log('Cat click added!')
+          //console.log('Cat click added!')
         }
       }, [match.params.userId])
 
@@ -106,8 +106,8 @@ const useStyles = makeStyles(theme => ({
         if (data && data.error) {
           setRedirectToSignin({redirectToSignin: true})
         } else {
-          console.log("Here is the cat img")
-          console.log(data.data.file)
+          //console.log("Here is the cat img")
+          //console.log(data.data.file)
           setCat(data.data.file)
           setLiked(false)
           addClick()

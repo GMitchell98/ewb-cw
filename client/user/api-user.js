@@ -10,7 +10,7 @@ const create = async (user) => {
       })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -23,7 +23,7 @@ const list = async (signal) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -41,7 +41,7 @@ const listadmin = async (params, credentials, signal) => {
    })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -58,7 +58,7 @@ const read = async (params, credentials, signal) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -75,7 +75,7 @@ const update = async (params, credentials, user) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -91,7 +91,7 @@ const remove = async (params, credentials) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 

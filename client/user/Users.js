@@ -35,10 +35,10 @@ export default function Users() {
 
     list(signal).then((data) => {
       if (data && data.error) {
-        console.log(data.error)
+        //console.log(data.error)
       } else {
-      	console.log("Here is the user data")
-      	console.log(data)
+      	//console.log("Here is the user data")
+      	//console.log(data)
         setUsers(data)
       }
     })

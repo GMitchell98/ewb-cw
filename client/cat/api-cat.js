@@ -1,5 +1,5 @@
 const getcat = async (params,credentials, signal) => {
-  console.log("fetching a cat")
+  //console.log("fetching a cat")
   try {
     let response = await fetch('/dogcat/cat/'+params.userId, {
       method: 'GET',
@@ -12,7 +12,7 @@ const getcat = async (params,credentials, signal) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -28,7 +28,7 @@ const addCatClick = async (params, credentials) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -44,7 +44,7 @@ const addCatLikeClick = async (params, credentials) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
@@ -60,7 +60,7 @@ const removeCatLikeClick = async (params, credentials) => {
     })
     return await response.json()
   } catch(err) {
-    console.log(err)
+    //console.log(err)
   }
 }
 
